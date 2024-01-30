@@ -1,0 +1,3 @@
+Tabela a ser montada
+
+| Colunas | Mín | Máx | Média | Moda | Mediana | Amplitude | Desvio Padrão | Variância | Coeficiente de Variação |
