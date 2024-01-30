@@ -1,17 +1,18 @@
 from API import get_data_from_google_sheets_api
+from module import calcular_estatisticas
 
 
 def main():
     data = get_data_from_google_sheets_api()
 
     # Dicionários vazios para armazenar listas de valores para cada chave
-    idade = []
+    idade = [] #---------------------------------------------------------------------------
     sexo = []
-    semestre = []
-    renda_familiar = []
+    semestre = [] #---------------------------------------------------------------------------
+    renda_familiar = [] #---------------------------------------------------------------------------
     trabalha = []
     mora = []
-    tempo_estudo_diario = []
+    tempo_estudo_diario = [] #---------------------------------------------------------------------------
     periodo = []
     infra_sala = []
     infra_biblioteca = []
@@ -51,8 +52,9 @@ def main():
 
     # Lista com cada informação:
     print("Idade:", idade)
-    print("Sexo:", sexo)
-    
+    estatisticasIdade = calcular_estatisticas(idade)
+    print("Estatisticas da Idade: ", estatisticasIdade)
+
 
 
 if __name__ == "__main__":
