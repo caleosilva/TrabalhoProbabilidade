@@ -1,5 +1,5 @@
 from API import get_data_from_google_sheets_api
-from module import calcular_estatisticas, editar_renda_familiar
+from module import calcular_estatisticas, editar_renda_familiar, rendaFamiliar_trabalho, moraSozinho_trabalha, tempoEstudoDiario_periodo, dedicacao_participacao, infraestrutura_qualidadeEnsino_periodo
 
 
 def main():
@@ -34,11 +34,7 @@ def main():
         idade.append(resposta['Idade'])
         sexo.append(resposta['Sexo'])
         semestre.append(resposta['Semestre'])
-        
         renda_familiar.append(editar_renda_familiar(resposta['RendaFamiliar']))
-        
-        
-        
         trabalha.append(resposta['Trabalha'])
         mora.append(resposta['Mora'])
         tempo_estudo_diario.append(resposta['TempoEstudoDiario'])
@@ -56,17 +52,22 @@ def main():
         participacao_intensa.append(resposta['ParticipacaoIntensa'])
         participacao_setenta.append(resposta['ParticipacaoSetenta'])
 
-    # Lista com cada informação:
-    # print("Idade:", idade)
-    # estatisticasIdade = calcular_estatisticas(idade)
-    print("Estatisticas da Idade: ", calcular_estatisticas(idade), '\n\n')
+    # print("Estatisticas da Idade: ", calcular_estatisticas(idade), '\n\n')
+    # print("Estatisticas do Semestre: ", calcular_estatisticas(semestre), '\n\n')
+    # print("Estatisticas da Renda familiar: ", calcular_estatisticas(renda_familiar), '\n\n')
+    # print("Estatisticas do Tempo de estudo diario: ", calcular_estatisticas(tempo_estudo_diario), '\n\n')
     
-    print("Estatisticas do Semestre: ", calcular_estatisticas(semestre), '\n\n')
+    # rendaFamiliar_trabalho(renda_familiar, trabalha)
+    # moraSozinho_trabalha(mora, trabalha)
+    # tempoEstudoDiario_periodo(tempo_estudo_diario, periodo)
+    # dedicacao_participacao(dedicacao_semanal, participacao_setenta)
     
-    print("Estatisticas da renda familiar: ", calcular_estatisticas(renda_familiar), '\n\n')
-    
-    print("Estatisticas do tempo de estudo diario: ", calcular_estatisticas(tempo_estudo_diario), '\n\n')
 
+    print("Como você avalia a estrutura geral da universidade?: ", infra_geral)
+    print("\n Como você avalia a qualidade de ensino?: ", qualidade_ensino)
+    print("\n Período?: ", periodo)
+
+    
 
 if __name__ == "__main__":
     main()
