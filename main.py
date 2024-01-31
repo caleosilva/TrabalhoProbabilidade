@@ -1,9 +1,11 @@
 from API import get_data_from_google_sheets_api
-from module import calcular_estatisticas
+from module import calcular_estatisticas, editar_renda_familiar
 
 
 def main():
     data = get_data_from_google_sheets_api()
+    
+    # print(data)
 
     # Dicionários vazios para armazenar listas de valores para cada chave
     idade = [] #---------------------------------------------------------------------------
@@ -32,7 +34,11 @@ def main():
         idade.append(resposta['Idade'])
         sexo.append(resposta['Sexo'])
         semestre.append(resposta['Semestre'])
-        renda_familiar.append(resposta['RendaFamiliar'])
+        
+        renda_familiar.append(editar_renda_familiar(resposta['RendaFamiliar']))
+        
+        
+        
         trabalha.append(resposta['Trabalha'])
         mora.append(resposta['Mora'])
         tempo_estudo_diario.append(resposta['TempoEstudoDiario'])
@@ -51,10 +57,15 @@ def main():
         participacao_setenta.append(resposta['ParticipacaoSetenta'])
 
     # Lista com cada informação:
-    print("Idade:", idade)
-    estatisticasIdade = calcular_estatisticas(idade)
-    print("Estatisticas da Idade: ", estatisticasIdade)
-
+    # print("Idade:", idade)
+    # estatisticasIdade = calcular_estatisticas(idade)
+    print("Estatisticas da Idade: ", calcular_estatisticas(idade), '\n\n')
+    
+    print("Estatisticas do Semestre: ", calcular_estatisticas(semestre), '\n\n')
+    
+    print("Estatisticas da renda familiar: ", calcular_estatisticas(renda_familiar), '\n\n')
+    
+    print("Estatisticas do tempo de estudo diario: ", calcular_estatisticas(tempo_estudo_diario), '\n\n')
 
 
 if __name__ == "__main__":
