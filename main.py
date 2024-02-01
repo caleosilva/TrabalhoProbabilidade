@@ -1,5 +1,5 @@
 from API import get_data_from_google_sheets_api
-from module import calcular_estatisticas, editar_renda_familiar, rendaFamiliar_trabalho, moraSozinho_trabalha, tempoEstudoDiario_periodo, dedicacao_participacao, infraestrutura_qualidadeEnsino_periodo
+from module import calcular_estatisticas, editar_renda_familiar, rendaFamiliar_trabalho, moraSozinho_trabalha, tempoEstudoDiario_periodo, dedicacao_participacao, infraestrutura_qualidadeEnsino, infraestrutura_participacaoIntensa
 
 
 def main():
@@ -52,21 +52,22 @@ def main():
         participacao_intensa.append(resposta['ParticipacaoIntensa'])
         participacao_setenta.append(resposta['ParticipacaoSetenta'])
 
+    # Dados da tabela:
+        
     # print("Estatisticas da Idade: ", calcular_estatisticas(idade), '\n\n')
     # print("Estatisticas do Semestre: ", calcular_estatisticas(semestre), '\n\n')
     # print("Estatisticas da Renda familiar: ", calcular_estatisticas(renda_familiar), '\n\n')
     # print("Estatisticas do Tempo de estudo diario: ", calcular_estatisticas(tempo_estudo_diario), '\n\n')
     
+
+    # Gráficos:
+        
     # rendaFamiliar_trabalho(renda_familiar, trabalha)
     # moraSozinho_trabalha(mora, trabalha)
     # tempoEstudoDiario_periodo(tempo_estudo_diario, periodo)
     # dedicacao_participacao(dedicacao_semanal, participacao_setenta)
-    
-
-    print("Como você avalia a estrutura geral da universidade?: ", infra_geral)
-    print("\n Como você avalia a qualidade de ensino?: ", qualidade_ensino)
-    print("\n Período?: ", periodo)
-
+    # infraestrutura_qualidadeEnsino(infra_geral, qualidade_ensino)
+    infraestrutura_participacaoIntensa(infra_geral, participacao_intensa)
     
 
 if __name__ == "__main__":
