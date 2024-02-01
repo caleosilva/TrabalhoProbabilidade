@@ -5,8 +5,6 @@ from module import calcular_estatisticas, editar_renda_familiar, rendaFamiliar_t
 def main():
     data = get_data_from_google_sheets_api()
     
-    # print(data)
-
     # Dicionários vazios para armazenar listas de valores para cada chave
     idade = [] #---------------------------------------------------------------------------
     sexo = []
